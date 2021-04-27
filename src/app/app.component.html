@@ -1,0 +1,21 @@
+<hello name="{{ name }}"></hello>
+<p>
+  <input [(ngModel)]="items" placeholder="Enter a number of items">
+</p>
+<!-- 
+  // ngPlural is a special directive tailored for pluralization
+  // ngPluralCase can have the following values based on the locale
+  // - zero, =0
+  // - one, =1
+  // - two, =2
+  // - few
+  // - many
+  // - other
+  // - exact match as the example of =100 below
+-->
+<div [ngPlural]="items">
+  <ng-template ngPluralCase="=0">Your cart is empty!</ng-template>
+  <ng-template ngPluralCase="=1">Only 1 item</ng-template>
+  <ng-template ngPluralCase="=100">Woohoo!!! 100 items in the cart!</ng-template>
+  <ng-template ngPluralCase="other">{{items}} items</ng-template>
+</div>
